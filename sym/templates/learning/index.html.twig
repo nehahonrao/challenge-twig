@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LearningController!{% endblock %}
+
+{% block menu %}
+<aside class="my-8 top-10% mt-4">
+<h3><a href="{{path("showMyName")}}">HomePage</a></h3>
+<div class="date mt-4" style="font-weight:bold">
+
+{# To make date work,need to make change in php.ini and added
+ ; c:/xampp/php/php.ini
+;  Uncomment the intl extension to enable the intl module
+   extension=intl #} 
+
+<p>Europe: {{ date('now')|format_date(pattern="D/M/Y") }}</p>
+<p>America: {{ date('now')|format_date(pattern="M/D/Y") }}</p>
+<p>China and Japan: {{ date('now')|format_date(pattern="Y/M/D") }}</p>
+ </div>
+
+ <div class="example-wrapper">
+        {{ quote() }}
+    </div>
+</aside>
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="text-center m-auto">
+    <h1>Hello {{name|title}}!</h1>
+    <a href="{{path('showMyName')}}"><h5>Do you want to change your name??</h5>
+</div>
+
+{% endblock %}
