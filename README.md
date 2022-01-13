@@ -7,4 +7,6 @@
                      ;  Uncomment the intl extension to enable the intl module
                      extension=intl 
 - and current dates are displaying.
+- to display quotes, i need to use twig function
+
  
