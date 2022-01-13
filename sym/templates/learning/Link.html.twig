@@ -6,7 +6,9 @@
 <h1><a href="{{path("learning")}}">About</a></h1>
 </aside>
 
-<div class="d-flex flex-column justify-content-center align-items-center py-3">
-    {{ getQuote()|nl2br }}
-</div>
+{% endblock %}
+ {% block quote %}
+    <div class="example-wrapper text-center my-4">
+    {{ quoteGenerator() }}
+    </div>
 {% endblock %}

@@ -2,8 +2,21 @@
 {% block menu %}
 <aside class=" my-8 top-10% mt-4">
 <h3><a href="{{path("learning")}}">About</a></h3>
+<div class="date mt-4" style="font-weight:bold">
+<p>Europe: {{ date('now')|format_date(pattern="D/M/Y") }}</p>
+<p>America: {{ date('now')|format_date(pattern="M/D/Y") }}</p>
+<p>China and Japan: {{ date('now')|format_date(pattern="Y/M/D") }}</p>
+ </div>
 </aside>
 {% endblock %}
+
+{% block quote %}
+        <div class="example-wrapper text-center my-4">
+        {{ quoteGenerator() }}
+        </div>
+        {% endblock %}
+
+
  {% block body %}
 <div class="info text-center my-8">
 <h1>Hello {{name|title}}!</h1>

@@ -6,23 +6,29 @@ use Twig\TwigFunction;
 
 class Quote extends AbstractExtension
 {
-
-    private array $quotes =
-    [
-        "“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.” \n― Albert Einstein",
-        "“Darkness cannot drive out darkness, \nonly light can do that. \nHate cannot drive out hate, \nonly love can do that.” \n― Martin Luther King Jr., A Testament of Hope: The Essential Writings and Speeches ",
-        "“Be the change that you wish to see in the world.” \n― Mahatma Gandhi",
-        "“If you want to know what a man's like, take a good look at how he treats his inferiors, not his equals.” \n― J.K. Rowling, Harry Potter and the Goblet of Fire",
-        "“Use lots of quotation signs, they make you look wiser.” \n- Koen Eelen",
-    ];
-
-    public function getQuote(): string
+    public function quoteGenerator(){
+        $quotes = [
+            "“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.”
+        ― Albert Einstein",
+            "“Darkness cannot drive out darkness,
+            only light can do that. 
+            Hate cannot drive out hate, 
+            only love can do that.”
+        ― Martin Luther King Jr., A Testament of Hope: The Essential Writings and Speeches ",
+            "“Be the change that you wish to see in the world.”
+        ― Mahatma Gandhi",
+            "“If you want to know what a man's like, take a good look at how he treats his inferiors, not his equals.”
+        ― J.K. Rowling, Harry Potter and the Goblet of Fire",
+            "“Use lots of quotation signs, they make you look wiser.”
+            - Koen Eelen"
+        ];
+       return $quotes[array_rand($quotes)];
+    }
+    public function getFunctions():array
     {
-        return $this->quotes[array_rand($this->quotes)];
+        return [
+            new TwigFunction('quoteGenerator', [$this, 'quoteGenerator']),
+        ];
     }
-
-    public function getFunctions(){
-        return [new TwigFunction('quote', [$this, 'getQuote']),];
-    }
-
+   
 }
